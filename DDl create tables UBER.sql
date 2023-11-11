@@ -91,7 +91,7 @@ CREATE TABLE MotAvaliaCli
 (
   IDMotorista VARCHAR(6) NOT NULL,
   IDCliente VARCHAR(5) NOT NULL,
-  NotaCliente DECIMAL(3, 2) NOT NULL,
+  NotaCliente DECIMAL(3, 2),
   PRIMARY KEY (IDCliente, IDMotorista),
   FOREIGN KEY (IDCliente) REFERENCES Cliente(IDCliente),
   FOREIGN KEY (IDMotorista) REFERENCES Motorista(IDMotorista)
@@ -101,7 +101,7 @@ CREATE TABLE CliAvaliaMot
 (
   IDCliente VARCHAR(5) NOT NULL,
   IDMotorista VARCHAR(6) NOT NULL,
-  NotaMotorista DECIMAL(3, 2) NOT NULL,
+  NotaMotorista DECIMAL(3, 2),
   PRIMARY KEY (IDMotorista, IDCliente),
   FOREIGN KEY (IDMotorista) REFERENCES Motorista(IDMotorista),
   FOREIGN KEY (IDCliente) REFERENCES Cliente(IDCliente)
