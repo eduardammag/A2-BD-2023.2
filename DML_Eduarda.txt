@@ -45,3 +45,4 @@ INSERT INTO Pedido VALUES
 ('PD08', 'CL08', 'MOT008', 66.08, 'Crédito', '16:07', 'Black'),
 ('PD09', 'CL09', 'MOT009', 23.80, 'Dinheiro', '08:00', 'Confort'),
 ('PD10', 'CL10', 'MOT0010', 14.50, 'Pix', '09:31', 'UberX');
+
