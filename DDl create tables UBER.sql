@@ -137,7 +137,7 @@ CREATE TABLE Viagem
   ID_Viagem VARCHAR(4) NOT NULL,
   ID_Pedido VARCHAR(4) NOT NULL
   HoraInicio TIME NOT NULL,
-  HoraFim TIME NOT NULL,,
+  HoraFim TIME NOT NULL,
   ID_Local_Partida VARCHAR(6) NOT NULL,
   ID_Local_Destino VARCHAR(6) NOT NULL,
   PRIMARY KEY (ID_Viagem),

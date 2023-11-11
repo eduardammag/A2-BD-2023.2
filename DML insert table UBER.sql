@@ -85,8 +85,6 @@ INSERT INTO Motorista (ID_Motorista, CPF, RG, CNH, Email, Nome, DataNasc, Idade,
 ('MOT010', '244.614.852-26', '19.329.060-1', '3094840954', 'chaves@email.com', 'Chaves Teixeira', '12/01/1981', 42, 'Masculino', 4.7, 'VE10', 'fotoMT010.png');
 
 
--- Insert statements for the ClienteMotorista table
-
 INSERT INTO ClienteMotorista (ID_cliente, ID_Motorista, NotaMotorista) VALUES
 ('CL01', 'MOT001', 5.0),
 ('CL02', 'MOT001', NULL),
