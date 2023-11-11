@@ -1,0 +1,47 @@
+INSERT INTO Cliente VALUES
+('CL01', 5948136, 57841203698, 10.32, 'joaninha1497@gmail.com', 'Joana Mesquita Magalhães', 1.7, '2005-05-10', 18, 'fotoCL01.png'),
+('CL02', 6418529, 20145987666, 230.15, 'guiguizinho1149@gmail.com', 'Guilherme Juliano Castilho', 3.5, '2003-02-30', 23, 'fotoCL02.png'),
+('CL03', 3265589, 32547810269, 1500.02, '618145455@outlook.com', 'João Vitor Manuel Sousa', 5.0, '1981-12-02', 42, 'fotoCL03.png'),
+('CL04', 3158765, 20154782257, 600.00, 'ruana_oliveira999@hotmail.com', 'Ruana Oliveira Fernandes', 4.9, '2004-11-14', 19, NULL),
+('CL05', 2147038, 20154776308, 16.89, 'natalia.font34@uol.com.br', 'Natália Fontenelle Araújo', 2.1, '1998-08-14', 25, 'fotoCL05.png'),
+('CL06', 2114697, 15078230694, 231.47, 'justino_milena@yahoo.com.br', 'Milena Justino Tavares', 3.0, '1966-01-01', 57, 'fotoCL06.png'),
+('CL07', 1473318, 21508630147, 18.78, 'dudaa_dudinha.love@gmail.com', 'Eduarda Valentim Moura', 4.0, '1986-05-05', 37, 'fotoCL07.png'),
+('CL08', 5026709, 20154887206, 170.90, 'gabriela1010@outlook.com', 'Gabriela Lopes Moreira', 3.7, '2002-06-12', 21, NULL),
+('CL09', 7045983, 90326990158, 562.33, 'gabrielsantossantos@yahoo.com.br', 'Gabriel Santos Biancardi', 4.8, '1956-03-17', 67, 'fotoCL09.png'),
+('CL10', 9035761, 78099758143, 57.99, 'luisasonza.fazsucesso@gmail.com', 'Luisa Sonza Quadros', 4.1, '1956-02-28', 26, NULL);
+
+INSERT INTO AvaliacaoMotorista VALUES
+('MOT001', 'CL01', 2.0),
+('MOT001', 'CL02', 4.0),
+('MOT003', 'CL03', NULL),
+('MOT004', 'CL04', 5.0),
+('MOT005', 'CL05', 3.0),
+('MOT006', 'CL06', 3.0),
+('MOT007', 'CL07', 4.0),
+('MOT008', 'CL08', 4.0),
+('MOT009', 'CL09', NULL),
+('MOT0010', 'CL10', 3.0);
+
+INSERT INTO ContatoCliente VALUES
+('CL01', '(85)996040621'),
+('CL02', '(21)985563214'),
+('CL03', '(32)857412562'),
+('CL04', '(31)987452614'),
+('CL05', '(51)997854213'),
+('CL06', '(88)985631478'),
+('CL07', '(71)985632147'),
+('CL08', '(85)968542136'),
+('CL09', '(11)758421369'),
+('CL10', '(11)987411563');
+
+INSERT INTO Pedido VALUES
+('PD01', 'CL01', 'MOT001', 16.97, 'Crédito', '15:10', 'UberX'),
+('PD02', 'CL02', 'MOT001', 45.31, 'Pix', '11:23', 'Confort'),
+('PD03', 'CL03', 'MOT003', 57.30, 'Dinheiro', '20:01', 'Black'),
+('PD04', 'CL04', 'MOT004', 5.50, 'Pix', '07:12', 'UberX'),
+('PD05', 'CL05', 'MOT005', 9.74, 'Débito', '13:57', 'UberX'),
+('PD06', 'CL06', 'MOT006', 11.23, 'Débito', '12:11', 'UberX'),
+('PD07', 'CL07', 'MOT007', 37.49, 'Débito', '09:35', 'Confort'),
+('PD08', 'CL08', 'MOT008', 66.08, 'Crédito', '16:07', 'Black'),
+('PD09', 'CL09', 'MOT009', 23.80, 'Dinheiro', '08:00', 'Confort'),
+('PD10', 'CL10', 'MOT0010', 14.50, 'Pix', '09:31', 'UberX');
