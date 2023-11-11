@@ -6,7 +6,7 @@ CREATE TABLE Cliente
   CPF CHAR(11) NOT NULL,
   Email VARCHAR(50) NOT NULL,
   AvaliacaoCliente DECIMAL(3, 2),
-  Saldo DECIMAL(10, 2) NOT NULL,
+  Saldo MONEY NOT NULL,
   DataNasc DATE NOT NULL,
   Foto VARCHAR(20),
   PRIMARY KEY (IDCliente),
