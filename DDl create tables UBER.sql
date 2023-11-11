@@ -40,8 +40,8 @@ CREATE TABLE Motorista
   Email VARCHAR(50) NOT NULL,
   DataNasc DATE NOT NULL,
   AvaliacaoMotorista DECIMAL(3, 2) NOT NULL,
-  IDVeiculo VARCHAR(4) NOT NULL,
-  Foto VARCHAR(12) NOT NULL,
+  IDVeiculo VARCHAR(5) NOT NULL,
+  Foto VARCHAR(20) NOT NULL,
   PRIMARY KEY (IDMotorista),
   FOREIGN KEY (IDVeiculo) REFERENCES Veiculo(IDVeiculo),
   UNIQUE (Email),
@@ -55,7 +55,7 @@ CREATE TABLE Pedido
   IDPedido VARCHAR(5) NOT NULL,
   IDCliente VARCHAR(5) NOT NULL,
   IDMotorista VARCHAR(6),
-  Preco DECIMAL(6, 2),
+  Preco MONEY,
   Horario TIME NOT NULL,
   TipoPedido VARCHAR(20) NOT NULL,
   TipoDePagamento VARCHAR(20) NOT NULL,
@@ -69,7 +69,7 @@ CREATE TABLE Cartao
   IDCartao VARCHAR(5) NOT NULL,
   CodigoCartao CHAR(16) NOT NULL,
   CVV INT NOT NULL,
-  DataExpira DATE NOT NULL,
+  DataExpira CHAR(5) NOT NULL,
   TipoCartao VARCHAR(7) NOT NULL,
   PRIMARY KEY (IDCartao),
   UNIQUE (CodigoCartao)
@@ -110,7 +110,7 @@ CREATE TABLE CliAvaliaMot
 CREATE TABLE CartPertenceA
 (
   IDCartao VARCHAR(5) NOT NULL,
-  IDCliente VARCHAR(4) NOT NULL,
+  IDCliente VARCHAR(5) NOT NULL,
   PRIMARY KEY (IDCartao, IDCliente),
   FOREIGN KEY (IDCartao) REFERENCES Cartao(IDCartao),
   FOREIGN KEY (IDCliente) REFERENCES Cliente(IDCliente)
@@ -126,7 +126,7 @@ CREATE TABLE ClienteTelefone
 
 CREATE TABLE MotoristaTelefone
 (
-  IDMotorista VARCHAR(5) NOT NULL,
+  IDMotorista VARCHAR(6) NOT NULL,
   Telefone VARCHAR(15) NOT NULL,
   PRIMARY KEY (Telefone, IDMotorista),
   FOREIGN KEY (IDMotorista) REFERENCES Motorista(IDMotorista)
@@ -134,8 +134,8 @@ CREATE TABLE MotoristaTelefone
 
 CREATE TABLE Viagem
 (
-  IDViagem VARCHAR(4) NOT NULL,
-  IDPedido VARCHAR(4) NOT NULL,
+  IDViagem VARCHAR(5) NOT NULL,
+  IDPedido VARCHAR(5) NOT NULL,
   HoraInicio TIME NOT NULL,
   HoraFim TIME NOT NULL,
   IDLocalPartida VARCHAR(6) NOT NULL,
