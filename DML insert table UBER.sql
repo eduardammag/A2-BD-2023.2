@@ -1,14 +1,14 @@
-INSERT INTO Cliente VALUES
-('CL01', 5948136, 57841203698, 10.32, 'joaninha1497@gmail.com', 'Joana Mesquita Magalhães', 1.7, '2005-05-10', 18, 'fotoCL01.png'),
-('CL02', 6418529, 20145987666, 230.15, 'guiguizinho1149@gmail.com', 'Guilherme Juliano Castilho', 3.5, '2003-02-30', 23, 'fotoCL02.png'),
-('CL03', 3265589, 32547810269, 1500.02, '618145455@outlook.com', 'João Vitor Manuel Sousa', 5.0, '1981-12-02', 42, 'fotoCL03.png'),
-('CL04', 3158765, 20154782257, 600.00, 'ruana_oliveira999@hotmail.com', 'Ruana Oliveira Fernandes', 4.9, '2004-11-14', 19, NULL),
-('CL05', 2147038, 20154776308, 16.89, 'natalia.font34@uol.com.br', 'Natália Fontenelle Araújo', 2.1, '1998-08-14', 25, 'fotoCL05.png'),
-('CL06', 2114697, 15078230694, 231.47, 'justino_milena@yahoo.com.br', 'Milena Justino Tavares', 3.0, '1966-01-01', 57, 'fotoCL06.png'),
-('CL07', 1473318, 21508630147, 18.78, 'dudaa_dudinha.love@gmail.com', 'Eduarda Valentim Moura', 4.0, '1986-05-05', 37, 'fotoCL07.png'),
-('CL08', 5026709, 20154887206, 170.90, 'gabriela1010@outlook.com', 'Gabriela Lopes Moreira', 3.7, '2002-06-12', 21, NULL),
-('CL09', 7045983, 90326990158, 562.33, 'gabrielsantossantos@yahoo.com.br', 'Gabriel Santos Biancardi', 4.8, '1956-03-17', 67, 'fotoCL09.png'),
-('CL10', 9035761, 78099758143, 57.99, 'luisasonza.fazsucesso@gmail.com', 'Luisa Sonza Quadros', 4.1, '1956-02-28', 26, NULL);
+INSERT INTO Cliente (ID_Cliente, RG, CPF, Saldo, Email, Nome, AvaliacaoCliente, DataNasc, Foto) VALUES
+('CL01', '5948136', '57841203698', 10.32, 'joaninha1497@gmail.com', 'Joana Mesquita Magalhães', 1.7, '10-05-2003', 'fotoCL01.png'),
+('CL02', '6418529', '20145987666', 230.15, 'guiguizinho1149@gmail.com', 'Guilherme Juliano Castilho', 3.5, '2003-02-30', 'fotoCL02.png'),
+('CL03', '3265589', '32547810269', 1500.02, '618145455@outlook.com', 'João Vitor Manuel Sousa', 5.0, '1981-12-02', 'fotoCL03.png'),
+('CL04', '3158765', '20154782257', 600.00, 'ruana_oliveira999@hotmail.com', 'Ruana Oliveira Fernandes', 4.9, '2004-11-14', NULL),
+('CL05', '2147038', '20154776308', 16.89, 'natalia.font34@uol.com.br', 'Natália Fontenelle Araújo', 2.1, '1998-08-14', 'fotoCL05.png'),
+('CL06', '2114697', '15078230694', 231.47, 'justino_milena@yahoo.com.br', 'Milena Justino Tavares', 3.0, '1966-01-01', 'fotoCL06.png'),
+('CL07', '1473318', '21508630147', 18.78, 'dudaa_dudinha.love@gmail.com', 'Eduarda Valentim Moura', 4.0, '1986-05-05', 'fotoCL07.png'),
+('CL08', '5026709', '20154887206', 170.90, 'gabriela1010@outlook.com', 'Gabriela Lopes Moreira', 3.7, '2002-06-12', NULL),
+('CL09', '7045983', '90326990158', 562.33, 'gabrielsantossantos@yahoo.com.br', 'Gabriel Santos Biancardi', 4.8, '1956-03-17', 'fotoCL09.png'),
+('CL10', '9035761', '78099758143', 57.99, 'luisasonza.fazsucesso@gmail.com', 'Luisa Sonza Quadros', 4.1, '1956-02-28', NULL);
 
 INSERT INTO AvaliacaoMotorista VALUES
 ('MOT001', 'CL01', 2.0),
