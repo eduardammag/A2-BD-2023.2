@@ -1,145 +1,147 @@
-CREATE TABLE CLIENTE
+CREATE TABLE Cliente
 (
-  ID_cliente INT NOT NULL,
-  Foto INT,
-  Email INT NOT NULL,
-  Nome INT NOT NULL,
-  AvaliacaoCliente INT NOT NULL,
-  Saldo INT NOT NULL,
-  DataNasc INT NOT NULL,
-  CPF INT NOT NULL,
-  RG INT NOT NULL,
-  PRIMARY KEY (ID_cliente),
+  ID_Cliente VARCHAR(5) NOT NULL,
+  Nome VARCHAR(50) NOT NULL,
+  RG VARCHAR(12) NOT NULL,
+  CPF CHAR(11) NOT NULL,
+  Email VARCHAR(50) NOT NULL,
+  AvaliacaoCliente DECIMAL(1, 2),
+  Saldo DECIMAL(10, 2) NOT NULL,
+  DataNasc DATE NOT NULL,
+  Foto VARCHAR(20),
+  PRIMARY KEY (ID_Cliente),
   UNIQUE (Email),
   UNIQUE (CPF),
   UNIQUE (RG)
 );
 
-CREATE TABLE VEICULO
+CREATE TABLE Veiculo
 (
-  ID_veiculo INT NOT NULL,
-  Cor INT NOT NULL,
-  Modelo INT NOT NULL,
+  ID_Veiculo VARCHAR(5) NOT NULL,
+  PlacaVeiculo CHAR(7)INT NOT NULL,
+  Marca VARCHAR(20),
+  Modelo VARCHAR(20) NOT NULL,
   Ano INT NOT NULL,
-  CRLV INT NOT NULL,
-  PlacaVeículo INT NOT NULL,
-  PRIMARY KEY (ID_veiculo),
+  Cor VARCHAR(10) NOT NULL,
+  CRLV BIGINT NOT NULL,
+  PRIMARY KEY (ID_Veiculo),
   UNIQUE (CRLV),
-  UNIQUE (PlacaVeículo)
+  UNIQUE (PlacaVeiculo)
 );
 
-CREATE TABLE MOTORISTA
+CREATE TABLE Motorista
 (
-  ID_motorista INT NOT NULL,
-  Genero INT NOT NULL,
-  Foto INT NOT NULL,
-  Email INT NOT NULL,
-  AvaliacaoMotorista INT NOT NULL,
-  DataNasc INT NOT NULL,
-  CNH INT NOT NULL,
-  CPF INT NOT NULL,
-  RG INT NOT NULL,
-  ID_veiculo INT NOT NULL,
-  PRIMARY KEY (ID_motorista),
-  FOREIGN KEY (ID_veiculo) REFERENCES VEICULO(ID_veiculo),
+  ID_Motorista VARCHAR(6) NOT NULL,
+  Nome VARCHAR(50),
+  Genero VARCHAR(9) NOT NULL,
+  CNH CHAR(10) NOT NULL,
+  CPF CHAR(11) NOT NULL,
+  RG VARCHAR(11) NOT NULL,
+  Email VARCHAR(50) NOT NULL,
+  DataNasc DATE NOT NULL,
+  AvaliacaoMotorista DECIMAL(1, 2) NOT NULL,
+  ID_Veiculo VARCHAR(4) NOT NULL,
+  Foto VARCHAR(12) NOT NULL,
+  PRIMARY KEY (ID_Motorista),
+  FOREIGN KEY (ID_Veiculo) REFERENCES Veiculo(ID_Veiculo),
   UNIQUE (Email),
   UNIQUE (CNH),
   UNIQUE (CPF),
   UNIQUE (RG)
 );
 
-CREATE TABLE PEDIDO
+CREATE TABLE Pedido
 (
-  ID_Pedido INT NOT NULL,
-  Preco INT NOT NULL,
-  Horario INT NOT NULL,
-  TipoPedido INT NOT NULL,
-  TipoDePagamento INT NOT NULL,
-  ID_cliente INT NOT NULL,
-  ID_motorista INT,
+  ID_Pedido VARCHAR(5) NOT NULL,
+  ID_Cliente VARCHAR(5) NOT NULL,
+  ID_Motorista VARCHAR(6),
+  Preco DECIMAL(6, 2),
+  Horario TIME NOT NULL,
+  TipoPedido VARCHAR(20) NOT NULL,
+  TipoDePagamento VARCHAR(20) NOT NULL,
   PRIMARY KEY (ID_Pedido),
-  FOREIGN KEY (ID_cliente) REFERENCES CLIENTE(ID_cliente),
-  FOREIGN KEY (ID_motorista) REFERENCES MOTORISTA(ID_motorista)
+  FOREIGN KEY (ID_Cliente) REFERENCES Cliente(ID_Cliente),
+  FOREIGN KEY (ID_Motorista) REFERENCES Motorista(ID_Motorista)
 );
 
 CREATE TABLE Cartao
 (
+  ID_Cartao VARCHAR(5) NOT NULL,
+  CodigoCartao CHAR(16) NOT NULL,
   CVV INT NOT NULL,
-  DataExpira INT NOT NULL,
-  CodigoCartao INT NOT NULL,
-  TipoCartao INT NOT NULL,
-  ID_cartao INT NOT NULL,
-  PRIMARY KEY (CodigoCartao),
-  UNIQUE (ID_cartao)
+  DataExpira DATE NOT NULL,
+  TipoCartao VARCHAR(7) NOT NULL,
+  PRIMARY KEY (ID_Cartao),
+  UNIQUE (CodigoCartao)
 );
 
 CREATE TABLE Localidade
 (
-  Rua INT NOT NULL,
-  Numero INT NOT NULL,
-  Cidade INT NOT NULL,
-  Estado INT NOT NULL,
+  ID_Local VARCHAR(6) NOT NULL,
   CodigoZIP INT NOT NULL,
-  ID_local INT NOT NULL,
-  Bairro INT NOT NULL,
-  PRIMARY KEY (ID_local)
+  Estado VARCHAR(20) NOT NULL,
+  Cidade VARCHAR(20) NOT NULL,
+  Bairro VARCHAR(20) NOT NULL,
+  Rua VARCHAR(50) NOT NULL,
+  Numero INT NOT NULL,
+  PRIMARY KEY (ID_Local)
 );
 
 CREATE TABLE MotAvaliaCli
 (
-  NotaCliente INT NOT NULL,
-  ID_cliente INT NOT NULL,
-  ID_motorista INT NOT NULL,
-  PRIMARY KEY (ID_cliente, ID_motorista),
-  FOREIGN KEY (ID_cliente) REFERENCES CLIENTE(ID_cliente),
-  FOREIGN KEY (ID_motorista) REFERENCES MOTORISTA(ID_motorista)
+  ID_Motorista VARCHAR(6) NOT NULL,
+  ID_Cliente VARCHAR(5) NOT NULL,
+  NotaCliente DECIMAL(1, 2) NOT NULL,
+  PRIMARY KEY (ID_Cliente, ID_Motorista),
+  FOREIGN KEY (ID_Cliente) REFERENCES Cliente(ID_Cliente),
+  FOREIGN KEY (ID_Motorista) REFERENCES Motorista(ID_Motorista)
 );
 
 CREATE TABLE CliAvaliaMot
 (
-  NotaMotorista INT NOT NULL,
-  ID_motorista INT NOT NULL,
-  ID_cliente INT NOT NULL,
-  PRIMARY KEY (ID_motorista, ID_cliente),
-  FOREIGN KEY (ID_motorista) REFERENCES MOTORISTA(ID_motorista),
-  FOREIGN KEY (ID_cliente) REFERENCES CLIENTE(ID_cliente)
+  ID_Cliente VARCHAR(5) NOT NULL,
+  ID_Motorista VARCHAR(6) NOT NULL,
+  NotaMotorista DECIMAL(1, 2) NOT NULL,
+  PRIMARY KEY (ID_Motorista, ID_Cliente),
+  FOREIGN KEY (ID_Motorista) REFERENCES Motorista(ID_Motorista),
+  FOREIGN KEY (ID_Cliente) REFERENCES Cliente(ID_Cliente)
 );
 
 CREATE TABLE CartPertenceA
 (
-  CodigoCartao INT NOT NULL,
-  ID_cliente INT NOT NULL,
-  PRIMARY KEY (CodigoCartao, ID_cliente),
-  FOREIGN KEY (CodigoCartao) REFERENCES Cartao(CodigoCartao),
-  FOREIGN KEY (ID_cliente) REFERENCES CLIENTE(ID_cliente)
+  ID_Cartao VARCHAR(5) NOT NULL,
+  ID_Cliente VARCHAR(4) NOT NULL,
+  PRIMARY KEY (ID_Cartao, ID_Cliente),
+  FOREIGN KEY (ID_Cartao) REFERENCES Cartao(ID_Cartao),
+  FOREIGN KEY (ID_Cliente) REFERENCES Cliente(ID_Cliente)
 );
 
-CREATE TABLE CLIENTE_Telefone
+CREATE TABLE ClienteTelefone
 (
-  Telefone INT NOT NULL,
-  ID_cliente INT NOT NULL,
-  PRIMARY KEY (Telefone, ID_cliente),
-  FOREIGN KEY (ID_cliente) REFERENCES CLIENTE(ID_cliente)
+  ID_Cliente VARCHAR(5) NOT NULL,
+  Telefone VARCHAR(15) NOT NULL,
+  PRIMARY KEY (Telefone, ID_Cliente),
+  FOREIGN KEY (ID_Cliente) REFERENCES Cliente(ID_Cliente)
 );
 
-CREATE TABLE MOTORISTA_Telefone
+CREATE TABLE MotoristaTelefone
 (
-  Telefone INT NOT NULL,
-  ID_motorista INT NOT NULL,
-  PRIMARY KEY (Telefone, ID_motorista),
-  FOREIGN KEY (ID_motorista) REFERENCES MOTORISTA(ID_motorista)
+  ID_Motorista VARCHAR(5) NOT NULL,
+  Telefone VARCHAR(15) NOT NULL,
+  PRIMARY KEY (Telefone, ID_Motorista),
+  FOREIGN KEY (ID_Motorista) REFERENCES Motorista(ID_Motorista)
 );
 
-CREATE TABLE VIAGEM
+CREATE TABLE Viagem
 (
-  HoraInicio INT NOT NULL,
-  ID_viagem INT NOT NULL,
-  HoraFim INT NOT NULL,
-  ID_Pedido INT NOT NULL,
-  ID_local_partida INT NOT NULL,
-  ID_local_destino INT NOT NULL,
-  PRIMARY KEY (ID_viagem),
-  FOREIGN KEY (ID_Pedido) REFERENCES PEDIDO(ID_Pedido),
-  FOREIGN KEY (ID_local_partida) REFERENCES Localidade(ID_local),
-  FOREIGN KEY (ID_local_destino) REFERENCES Localidade(ID_local)
+  ID_Viagem VARCHAR(4) NOT NULL,
+  ID_Pedido VARCHAR(4) NOT NULL
+  HoraInicio TIME NOT NULL,
+  HoraFim TIME NOT NULL,,
+  ID_Local_Partida VARCHAR(6) NOT NULL,
+  ID_Local_Destino VARCHAR(6) NOT NULL,
+  PRIMARY KEY (ID_Viagem),
+  FOREIGN KEY (ID_Pedido) REFERENCES Pedido(ID_Pedido),
+  FOREIGN KEY (ID_Local_Partida) REFERENCES Localidade(ID_Local),
+  FOREIGN KEY (ID_Local_Destino) REFERENCES Localidade(ID_Local)
 );
