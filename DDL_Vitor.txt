@@ -1,0 +1,34 @@
+CREATE TABLE Motoristas (
+    ID_Motorista VARCHAR(10),
+    Telefone VARCHAR(15),
+
+);
+
+CREATE TABLE Veiculos (
+    ID_Veiculo VARCHAR(10),
+    PlacaVeiculo VARCHAR(10),
+    CRLV VARCHAR(15),
+    Marca VARCHAR(50),
+    Modelo VARCHAR(50),
+    Ano INT,
+    Cor VARCHAR(50)
+);
+
+CREATE TABLE Locais (
+    ID_local VARCHAR(10),
+    CodigoZIP INT,
+    Estado VARCHAR(50),
+    Cidade VARCHAR(50),
+    Bairro VARCHAR(50),
+    Rua VARCHAR(50),
+    Numero INT
+);
+
+CREATE TABLE Viagens (
+    ID_Viagem VARCHAR(10),
+    ID_Pedido VARCHAR(10),
+    ID_LocalPartida VARCHAR(10),
+    ID_LocalPestino VARCHAR(10),
+    HoraInicio TIME,
+    HoraFim TIME
+);
